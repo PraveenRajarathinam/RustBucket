@@ -115,6 +115,11 @@ def cart():
     u_id=request.args.get('u_id')
     return render_template("CART1.html", u_id=u_id)
 
+@app.route('/chat')
+def chat():
+    u_id=request.args.get('u_id')
+    return render_template("Chat.html", u_id=u_id)
+
 @app.route('/car')
 def car():
      cursor.execute("select * from products")
@@ -137,7 +142,9 @@ def adminL():
     product_count=cursor.fetchone()
     cursor.execute("select count(*) from payment")
     orders_count=cursor.fetchone()
-    return render_template("/admin/ad.html",user_count=user_count[0],product_count=product_count[0],orders_count=orders_count[0])
+    cursor.execute("select sum(price) from payment")
+    total_rate = cursor.fetchone()
+    return render_template("/admin/ad.html",user_count=user_count[0],product_count=product_count[0],orders_count=orders_count[0],total_rate=total_rate[0])
 
 
 @app.route('/PrdAdd', methods=['POST','GET'])

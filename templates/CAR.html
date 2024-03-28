@@ -22,7 +22,7 @@
                     <p class="product-name">{{ PrdC[2] }}</p>
                     <p class="product-description">{{ PrdC[3] }}</p>
                     <p class="product-price" value="{{ PrdC[4] }}">Price: {{ PrdC[4] }}</p>
-                    <button class="add-to-cart" data-name="{{ PrdC[2] }}" data-price="{{ PrdC[4] }}">ADD TO CART</button>
+                    <a href="/cart"><button class="add-to-cart" data-name="{{ PrdC[2] }}" data-price="{{ PrdC[4] }}">ADD TO CART</button></a>
                 </div>
             </div>
             {% endfor %}
@@ -60,8 +60,6 @@
 
                 localStorage.setItem('cart', JSON.stringify(cart));
 
-                // Display alert
-                alert(`${productName} has been added to the cart!`);
 
                 // Update the number of products in the cart button
                 updateCartButton();
