@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RustBucket</title>
+    <link rel="stylesheet" href="{{url_for('static',filename= 'NEW.css')}}">
+    <link href="{{url_for('static',filename= 'assets/font-awesome-4.7.0')}}">
+</head>
+<body>
+    <div class="ful-page">
+        <div class="navbar">
+            <div>
+                <a href=''>RUSTBUCKET</a>
+            </div>
+            <nav>
+                <ul id='MenuItems'>
+                    <li><a href="{{url_for('home',u_id=u_id)}}">Home</a></li>
+                    <li><a href="{{url_for('about',u_id=u_id)}}">About Us</a></li>
+                    <li><a href="{{url_for('shop',u_id=u_id)}}">Shop</a></li>
+                    <li><a href="{{url_for('Cnt',u_id=u_id)}}">Contact</a></li>
+                    <li><a href="{{url_for('cart',u_id=u_id)}}">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+     
+        <section class="about-us">
+            <div class="about">
+              <div class="text">
+                <h2>Spare Parts</h2>
+                <h5>We Give You What You Want</h5>
+                  <p>We understand the heartbeat of every vehicle lies in its parts. Whether you're a car enthusiast or a motorcycle aficionado, our platform is designed to cater to your needs with precision and reliability.We strive to provide prompt and efficient service, ensuring that your shopping experience is hassle-free from start to finish. Experience the convenience of shopping for car and bike spare parts online. </p>
+              </div>
+              <img src="/static/assets/images/BIKEho.gif" class="pic">
+            </div>
+          </section>
+    </div>
+</body>
+</html>

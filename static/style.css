@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.brand{
+    color:aqua;
+}
+.sidebar {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px;
+    height: 100vh;
+}
+
+.nav-item {
+    margin-bottom: 10px;
+}
+
+.content {
+    padding: 20px;
+    min-height: calc(100vh - 70px);
+}

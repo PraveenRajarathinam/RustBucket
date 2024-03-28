@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename= 'style.css')}}">
+   
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="brand">
+            <h3> RUSTBUCKET </h3>
+        </div>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <span class="navbar-text mr-3">Welcome, Admin</span>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar">
+                <h2 class="text-center mb-4">Admin Panel</h2>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminL">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="UserL">User Management</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="prdd">Add Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PrdDetl">Product Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PayD">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="NCntc">Help Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AdLogt">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-9">
+                <div class="content">
+                    <h1 class="text-center mb-4">Product Details</h1>
+    
+                    <table id="productDetailsTable" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Product ID</th>
+                                <th>Product Image</th>
+                                <th>Product Name</th>
+                                <th>Product Description</th>
+                                <th>Product Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for PD in PrdAd_image %}
+                            <tr id="productRow{{ PD[0] }}">
+                                <td>{{ PD[0] }}</td>
+                                <td><img src="data:image/jpeg;base64, {{ PD[1] }}" width="100px" height="100px"></td>
+                                <td>{{ PD[2] }}</td>
+                                <td>{{ PD[3] }}</td>
+                                <td>{{ PD[4] }}</td>
+                                <td><button type="button" class="btn btn-danger delete-btn" data-product-id="{{ PD[0] }}">Delete</button></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const deleteButtons = document.querySelectorAll('.delete-btn');
+                    
+                            deleteButtons.forEach(button => {
+                                button.addEventListener('click', function() {
+                                    const productId = this.getAttribute('data-product-id');
+                                    deleteProduct(productId);
+                                });
+                            });
+                    
+                            function deleteProduct(productId) {
+                                fetch(`/delete_product/${productId}`, {
+                                    method: 'DELETE'
+                                })
+                                .then(response => {
+                                    if (response.ok) {
+                                        const productRow = document.getElementById(`productRow${productId}`);
+                                        productRow.remove();
+                                    } else {
+                                        console.error('Failed to delete product');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                });
+                            }
+                        });
+                    </script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RustBucket</title>
+    <link rel="stylesheet" href="{{url_for('static',filename= 'stylem.css')}}">
+    <link href="{{url_for('static',filename= 'assets/font-awesome-4.7.0')}}">
+    <style>
+ *{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(182, 164, 164);
+    box-sizing: border-box;
+}
+.ful-page
+{
+    height: 100%;
+	width: 100%;
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+}
+.navbar
+{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 30px;
+    padding-top: 50px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+nav
+{
+    flex: 1;
+    text-align: right;
+}
+nav ul 
+{
+    display: inline-block;
+    list-style: none;
+}
+nav ul li
+{
+    display: inline-block;
+    margin-right: 70px;
+}
+nav ul li a
+{
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+    color: white;
+    font-family: sans-serif;
+}
+nav ul li button
+{
+    font-size: 20px;
+    color: white;
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: sans-serif;
+}
+nav ul li button:hover
+{
+    color: aqua;
+}
+nav ul li a:hover
+{
+    color: aqua;
+}
+
+/*** Navbar Start ***/
+.nav-bar {
+    background: var(--bs-light);
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+}
+
+.navbar .navbar-nav .nav-link {
+    padding: 10px 12px;
+    font-weight: 600;
+    font-size: 17px;
+    transition: .5s;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: var(--bs-primary);
+}
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+@media (min-width: 1200px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        visibility: hidden;
+        top: 100%;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+        transition: .5s;
+        opacity: 0;
+    }
+    
+    .navbar .nav-item:hover .dropdown-menu {
+        transform: rotateX(0deg);
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.dropdown .dropdown-menu a:hover {
+    background: var(--bs-primary);
+    color: var(--bs-white);
+}
+
+
+a
+{
+    text-decoration: none;
+    color: white;
+    font-size: 28px;
+}
+
+
+header {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #000000;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.cart-items {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.cart-item {
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+
+.cart-item h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.cart-item p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.quantity-input {
+    width: 50px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.remove-button {
+    background-color: #ff5757;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-summary {
+    margin-top: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.cart-summary p {
+    margin: 5px 0;
+}
+
+.btn {
+    background-color: #09ff00;
+    color: #fff;
+    text-align: center;
+    padding: 10px 10px;
+}
+    </style>
+</head>
+<body>
+    <div class="ful-page">
+        <div class="navbar">
+            <div>
+                <a href=''>RUSTBUCKET</a>
+            </div>
+            <nav>
+                <ul id='MenuItems'>
+                    <li><a href="{{url_for('home',u_id=u_id)}}">Home</a></li>
+                    <li><a href="{{url_for('about',u_id=u_id)}}">About Us</a></li>
+                    <li><a href="{{url_for('shop',u_id=u_id)}}">Shop</a></li>
+                    <li><a href="{{url_for('Cnt',u_id=u_id)}}">Contact</a></li>
+                    <li><a href="{{url_for('cart',u_id=u_id)}}">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <header>
+            <h1>Shopping Cart</h1>
+        </header>
+        <main>
+            <section class="cart-items">
+                <div id="cart-item-list">
+
+                </div>
+                <div id="cart-summary">
+                    
+                    <p>Total Number of Products: <span id="total-products">0</span></p>
+                    <p>Total Price: RS: <span id="total-price">0.00</span></p> <br>
+                    <input type="hidden" id="hidden-total-products" value="0">
+                    <input type="hidden" id="hidden-total-price" value="0.00">
+                    <a href="/Shipping"> <button class="btn">SHIP</button></a>
+
+                </div>    
+            </section>
+        </main>
+
+            
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const cartItemsContainer = document.getElementById('cart-item-list');
+                const totalProductsElement = document.getElementById('total-products');
+                const totalPriceElement = document.getElementById('total-price');
+        
+                let cart = localStorage.getItem('cart');
+                if (!cart) {
+                    cart = [];
+                } else {
+                    cart = JSON.parse(cart);
+                }
+        
+                updateCartUI(cart);
+        
+                function updateCartUI(cart) {
+                    cartItemsContainer.innerHTML = '';
+                    let totalProducts = 0;
+                    let totalPrice = 0;
+        
+                    cart.forEach((item, index) => {
+                        const cartItemElement = document.createElement('div');
+                        cartItemElement.classList.add('cart-item');
+                        cartItemElement.innerHTML = `
+                            <h2>${item.name}</h2>
+                            <p>Price: Rs: ${item.price}</p>
+                            <label for="quantity-${index}">Quantity:</label>
+                            <input type="number" id="quantity-${index}" class="quantity-input" value="${item.quantity}">
+                            <button class="remove-button" data-index="${index}">Remove</button>
+                        `;
+                        cartItemsContainer.appendChild(cartItemElement);
+        
+                        totalProducts += item.quantity; // Update total products with item quantity
+                        totalPrice += item.price * item.quantity; // Update total price with item price multiplied by quantity
+                    });
+        
+                    totalProductsElement.textContent = totalProducts;
+                    totalPriceElement.textContent = totalPrice.toFixed(2);
+        
+                    const quantityInputs = document.querySelectorAll('.quantity-input');
+                    quantityInputs.forEach(input => {
+                        input.addEventListener('input', () => {
+                            updateCartQuantity(input);
+                        });
+                    });
+        
+                    const removeButtons = document.querySelectorAll('.remove-button');
+                    removeButtons.forEach(button => {
+                        button.addEventListener('click', () => {
+                            removeFromCart(button.dataset.index);
+                        });
+                    });
+                }
+        
+                function updateCartQuantity(input) {
+                    const index = parseInt(input.id.split('-')[1]);
+                    const newQuantity = parseInt(input.value);
+                    cart[index].quantity = newQuantity;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartUI(cart); // Update UI after changing quantity
+                }
+        
+                function removeFromCart(index) {
+                    cart.splice(index, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartUI(cart); // Update UI after removing item
+                }
+        
+                function addToCart(productName, productPrice) {
+                    let existingProductIndex = cart.findIndex(item => item.name === productName);
+                    if (existingProductIndex !== -1) {
+                        // Product already exists in the cart, update its quantity
+                        cart[existingProductIndex].quantity++;
+                    } else {
+                        // Product does not exist in the cart, add it
+                        cart.push({ name: productName, price: productPrice, quantity: 1 });
+                    }
+        
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartUI(cart);
+                }
+        
+                const addToCartButtons = document.querySelectorAll('.add-to-cart');
+                addToCartButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const productName = button.dataset.name;
+                        const productPrice = parseFloat(button.dataset.price);
+                        addToCart(productName, productPrice);
+                    });
+                });
+            });
+
+        </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const showCartButton = document.getElementById('show-cart-button');
+        const totalProductsElement = document.getElementById('total-products');
+        const totalPriceElement = document.getElementById('total-price');
+    
+        let cart = localStorage.getItem('cart');
+        if (!cart) {
+            cart = [];
+        } else {
+            cart = JSON.parse(cart);
+        }
+    
+        updateCartButton(cart);
+    
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productName = button.dataset.name;
+                const productPrice = parseFloat(button.dataset.price);
+    
+                let existingProductIndex = cart.findIndex(item => item.name === productName);
+                if (existingProductIndex !== -1) {
+                    // Product already exists in the cart, update its quantity
+                    cart[existingProductIndex].quantity++;
+                } else {
+                    // Product does not exist in the cart, add it
+                    cart.push({ name: productName, price: productPrice, quantity: 1 });
+                }
+    
+                localStorage.setItem('cart', JSON.stringify(cart));
+    
+                // Update cart button and display alert
+                updateCartButton(cart);
+                alert(`${productName} has been added to the cart!`);
+            });
+        });
+    
+        function updateCartButton(cart) {
+            let numberOfProducts = 0;
+            let totalPrice = 0;
+    
+            if (cart) {
+                cart.forEach(item => {
+                    numberOfProducts += item.quantity;
+                    totalPrice += item.price * item.quantity;
+                });
+            }
+    
+            totalProductsElement.textContent = numberOfProducts;
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+    
+            showCartButton.textContent = `Show Cart (${numberOfProducts})`;
+        }
+    });
+</script>
+
+        </body>
+        </html>
+        
+
+    </div>
+</body>
+</html>

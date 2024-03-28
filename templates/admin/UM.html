@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - RustBucket Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename= 'style.css')}}">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="brand">
+            <h3> RUSTBUCKET </h3>
+        </div>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <span class="navbar-text mr-3">Welcome, Admin</span>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar">
+                <h2 class="text-center mb-4">Admin Panel</h2>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminL">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="UserL">User Management</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="prdd">Add Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PrdDetl">Product Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PayD">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="NCntc">Help Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AdLogt">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <!-- Content -->
+            <div class="col-md-9">
+                <div class="content">
+                    <h1 class="text-center mb-4">User Management</h1>
+    
+                    <!-- User Table -->
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Name</th>
+                                    <th>Email ID</th>
+                                    <th>Password</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for usr in cus %}
+                                <tr>
+                                    <td>{{ usr[0] }}</td>
+                                    <td>{{ usr[1] }}</td>
+                                    <td>{{ usr[3] }}</td>
+                                    <td>{{ usr[4] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

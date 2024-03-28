@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RustBucket</title>
+</head>
+<body>
+    <h1>Welcome to RustBucket</h1>
+    <h2>Products:</h2>
+    <ul>
+        {% for product in products %}
+        <li>{{ product.name }} - ${{ product.price }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/admin">Admin Page</a>
+</body>
+</html>

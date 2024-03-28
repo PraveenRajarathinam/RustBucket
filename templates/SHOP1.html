@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RustBucket</title>
+      <link rel="stylesheet" href="{{url_for('static',filename= 'NEW.css')}}">
+    <link href="{{url_for('static',filename= 'assets/font-awesome-4.7.0')}}">
+</head>
+<body>
+<div class="ful-page">
+        <div class="navbar">
+            <div>
+                <a href=''>RUSTBUCKET</a>
+            </div>
+            <nav>
+                <ul id='MenuItems'>
+                    <li><a href="{{url_for('home',u_id=u_id)}}">Home</a></li>
+                    <li><a href="{{url_for('about',u_id=u_id)}}">About Us</a></li>
+                    <li><a href="{{url_for('shop',u_id=u_id)}}">Shop</a></li>
+                    <li><a href="{{url_for('Cnt',u_id=u_id)}}">Contact</a></li>
+                    <li><a href="{{url_for('cart',u_id=u_id)}}">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+<!-- SHOP -->
+    <div class="container-sp">
+        <div class="box-sp">
+            <span></span>
+            <div class="content-sp">
+            <h2>PRODUCTS</h2>
+            <p>Click to see the products</p>
+            <a href="/car">SHOP</a>
+            </div>
+        </div>
+  <!-- SHOP -->
+</div>
+</body>
+</html>
