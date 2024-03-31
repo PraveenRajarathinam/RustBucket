@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - RustBucket
+name: Build and deploy Python app to Azure Web App - rustbucket
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v1
         with:
-          python-version: '3.12'
+          python-version: '3.9'
 
       - name: Create and start virtual environment
         run: |
@@ -62,6 +62,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'RustBucket'
+          app-name: 'rustbucket'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_144857BB339B43159353DD76ECBD76E2 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8806A0581277465CB3BB0E6D6043AC1F }}
