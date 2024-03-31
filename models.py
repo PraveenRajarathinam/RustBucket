@@ -2,7 +2,7 @@ import mysql.connector
 
 db=mysql.connector.connect(
     user='root',
-    password='Praveen@12', 
+    password='7519', 
     db='azure_db', 
     host= '127.0.0.1'
 )
