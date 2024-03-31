@@ -4,7 +4,7 @@ import pymysql
 import base64
 
 def sql_connector():
-    conn = pymysql.connect(user='root', password='Praveen@12', db='azure_db', host= '127.0.0.1')
+    conn = pymysql.connect(user='root', password='7519', db='azure_db', host= '127.0.0.1')
     c = conn.cursor()
 
     return  c,conn
@@ -54,7 +54,7 @@ def login():
     if request.method == 'POST' and 'EmailID' in request.form and 'PassW' in request.form:
         EmailID = request.form['EmailID']
         PassW = request.form['PassW']
-        conn = pymysql.connect(user='root', password='Praveen@12', db='azure_db', host= '127.0.0.1')
+        conn = pymysql.connect(user='root', password='7519', db='azure_db', host= '127.0.0.1')
         c = conn.cursor()
         c.execute('SELECT * FROM signup WHERE EmailID = %s AND PassW = %s', (EmailID, PassW))
         user = c.fetchone()
