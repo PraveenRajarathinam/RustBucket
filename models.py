@@ -1,10 +1,11 @@
 import mysql.connector
 
 db=mysql.connector.connect(
-    user='root',
-    password='7519', 
-    db='azure_db', 
-    host= '127.0.0.1'
+    username='rustbucket',
+    password='Azure7519', 
+    db='azure_db',
+    ssl-mode='require',
+   hostname='rustbucket.mysql.database.azure.com'
 )
 
 
