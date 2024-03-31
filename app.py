@@ -4,10 +4,16 @@ import pymysql
 import base64
 
 def sql_connector():
-    conn = pymysql.connect(user='root', password='7519', db='azure_db', host= '127.0.0.1')
-    c = conn.cursor()
+    db=mysql.connector.connect(
+    username='rustbucket',
+    password='Azure7519', 
+    db='azure_db',
+    ssl-mode='require',
+   hostname='rustbucket.mysql.database.azure.com'
+)
+    c = db.cursor()
 
-    return  c,conn
+    return  c,db
 
 
 app=Flask(__name__)
