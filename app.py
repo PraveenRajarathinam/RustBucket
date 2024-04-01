@@ -4,12 +4,12 @@ import pymysql
 import base64
 import sqlite3
 
+
+app=Flask(__name__)
+
 def get_db_connection():
     conn = sqlite3.connect('Azure_db.db')
     return conn
-
-app = Flask(__name__)
-app.secret_key = "your_secret_key_here"
 
 users = []
 
@@ -66,6 +66,10 @@ def login():
         
         cursor.execute('SELECT * FROM signup WHERE EmailID = ? AND PassW = ?', (EmailID, PassW))
         user = cursor.fetchone()
+
+
+        conn.commit()
+        conn.close()
 
         if user:
             return render_template('homePg.html', user=user)
