@@ -4,6 +4,7 @@ import pymysql
 import base64
 
 def sql_connector():
+<<<<<<< Updated upstream
     db=mysql.connector.connect(
     username='rustbucket',
     password='Azure7519', 
@@ -14,6 +15,11 @@ def sql_connector():
     c = db.cursor()
 
     return  c,db
+=======
+    conn = pymysql.connect(user='root', password='Praveen@12', db='azure_db', host= '127.0.0.1')
+    c = conn.cursor()
+    return  c,conn
+>>>>>>> Stashed changes
 
 
 app=Flask(__name__)
