@@ -105,14 +105,15 @@
             <nav>
                 <ul id='MenuItems'>
                     {% if user %}
-                    <li>
-                        <a href="adminL">Home</a>
-                    </li>
+                    
                     <li><a href="#">Home</a></li>
                     <li><a href="{{url_for('about',u_id=user[0])}}">About Us</a></li>
                     <li><a href="{{url_for('shop',u_id=user[0])}}">Shop</a></li>
                     <li><a href="{{url_for('Cnt',u_id=user[0])}}">Contact</a></li>
                     {% else %}
+                    <li>
+                        <a href="/adminL">Admin</a>
+                    </li>
                     <li><a href="#">Home</a></li>
                     <li><a href="{{url_for('about')}}">About Us</a></li>
                     <li><a href="{{url_for('shop')}}">Shop</a></li>
