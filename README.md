@@ -38,3 +38,6 @@ Contributions are welcome! If you have any suggestions, feature requests, or bug
 3. Sowmiya - Readme file and voice over
 4. Rohith - Cloud integration
 
+   ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/136549078/f66e8869-7ed9-4550-b42e-bb60dfb11a95)
+
+
