@@ -39,5 +39,11 @@ Contributions are welcome! If you have any suggestions, feature requests, or bug
 4. Rohith - Cloud integration
 
    ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/136549078/f66e8869-7ed9-4550-b42e-bb60dfb11a95)
+   ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/136549078/cb278d75-7259-4087-8cbc-19b2a2b5206f)
+   ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/136549078/e7f5fe04-f924-471c-baaf-e1f875bdf89f)
+   ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/136549078/52ae1f0e-c0bc-488f-93a6-4486d432571c)
+
+
+
 
 
