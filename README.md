@@ -13,7 +13,7 @@ RustBucket is an online platform dedicated to car spare parts shopping, providin
 
 ### Backend:
 - **Python Flask**: Used as the web framework for building the backend logic and handling HTTP requests.
-- **MySQL**: Used as the relational database management system for storing user data, product information, and order details.
+- **SQLite**: Used as the relational database management system for storing user data, product information, and order details.
 
 ## Features
 - **User Authentication**: Users can sign up, log in, and log out of their accounts securely.
@@ -45,10 +45,19 @@ Contributions are welcome! If you have any suggestions, feature requests, or bug
    ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/158301663/82fe2a5f-0f83-440c-957c-b40b1f7b6140)
    ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/158301663/e40a4ba1-3ad8-4fa0-85cb-4c3a9cb6faf5)
    ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/158301663/6e51eb81-0fe9-4621-b347-794c3a6805fc)
+   ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/158301663/49221af0-cac6-4f7f-ac9a-2085ff3d31db)
    ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/158301663/fc7d7c40-07c3-4810-9189-76ef751e6c6b)
    ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/158301663/fe064fb6-7458-4820-af70-286e3ad9e6f0)
    ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/158301663/764bca49-c908-4c56-8688-475f6a329cff)
    ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/158301663/236e864c-2275-4025-9f1e-1c28baddbf70)
+   ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/158301663/873e4eb7-5f68-43c5-8f94-93a7a17e0c30)
+   ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/158301663/c58cb640-83fa-44d3-8a4e-fadfed2154f9)
+   ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/158301663/34b5c40e-ec8b-470e-acf2-c107264bce3a)
+   ![image](https://github.com/PraveenRajarathinam/RustBucket/assets/158301663/1a50bd57-0675-4a38-8e3c-9e351bc22a31)
+
+
+
+
 
 
 
